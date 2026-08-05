@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Elegant serif (like Playfair) and a clean sans-serif (like Inter) */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+  :root {
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  body, .font-sans {
+    font-family: var(--font-sans);
+    background-color: #f7f3ef; /* Off-white textured background */
+    color: #1a1a1a;
+  }
+}
+
+/* Custom Chinese Double Happiness graphic (inline SVG) */
+.double-happiness {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M33 13h10v68H33zM57 13h10v68H57zM24 33h52v8H24zM24 57h52v8H24z'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
