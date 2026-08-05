@@ -1,13 +1,67 @@
 import React, { useEffect, useRef, useState } from "react";
-import bgImage from "./assets/bg.jpg"; // Adjust path if assets is located elsewhere (e.g. "../assets/bg.jpg")
+import bgImage from "./assets/bg.jpg"; // Background image import
 
 /**
  * Ryan & Abigail — Wedding Invitation
  * -----------------------------------
- * Streamlined Hero section featuring "YOU ARE INVITED" as a subtle gold subtext
- * above the names, maximizing focus on the central moon gate ring and roses.
- * Includes responsive Schedule of Events (Horizontal on Desktop / Vertical on Mobile).
+ * Features floating rose petal animation system and responsive sections.
  */
+
+// ---------------------------------------------------------------------------
+// Falling Rose Petals Animation Component
+// ---------------------------------------------------------------------------
+function FallingPetals({ count = 22 }) {
+  const [petals, setPetals] = useState([]);
+
+  useEffect(() => {
+    // Generate petals with randomized speeds, sizes, positions, and drift angles
+    const generatedPetals = Array.from({ length: count }).map((_, i) => ({
+      id: i,
+      left: Math.random() * 100, // Horizontal start percentage
+      size: 12 + Math.random() * 14, // Petal width in px
+      duration: 7 + Math.random() * 8, // Fall duration (seconds)
+      delay: Math.random() * 10, // Initial delay before animation starts
+      opacity: 0.5 + Math.random() * 0.4, // Opacity variation
+      swayDuration: 3 + Math.random() * 3, // Sway frequency
+      rotate: Math.random() * 360, // Initial rotation angle
+      color: i % 3 === 0 ? "#A60934" : i % 2 === 0 ? "#751014" : "#E17A13", // Rich crimson & warm tones
+    }));
+    setPetals(generatedPetals);
+  }, [count]);
+
+  return (
+    <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden">
+      {petals.map((p) => (
+        <div
+          key={p.id}
+          className="absolute top-[-5%]"
+          style={{
+            left: `${p.left}%`,
+            animation: `fall ${p.duration}s linear infinite`,
+            animationDelay: `${p.delay}s`,
+          }}
+        >
+          {/* Individual Sway & Rotation Wrapper */}
+          <svg
+            width={p.size}
+            height={p.size * 1.3}
+            viewBox="0 0 24 30"
+            fill={p.color}
+            style={{
+              opacity: p.opacity,
+              animation: `sway ${p.swayDuration}s ease-in-out infinite alternate`,
+              transform: `rotate(${p.rotate}deg)`,
+              filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.15))",
+            }}
+          >
+            {/* Smooth Rose Petal Path */}
+            <path d="M12 0 C 20 5, 24 15, 18 25 C 12 30, 6 28, 2 20 C -2 10, 4 2, 12 0 Z" />
+          </svg>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // ---------------------------------------------------------------------------
 // Reveal-on-scroll wrapper
@@ -50,7 +104,7 @@ function Reveal({ children, delay = 0, className = "", scale = false }) {
 }
 
 // ---------------------------------------------------------------------------
-// Standard Section Header (Used for lower sections)
+// Standard Section Header
 // ---------------------------------------------------------------------------
 function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
   const isDarkBg = theme === "light";
@@ -60,8 +114,9 @@ function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
       {numeral && (
         <Reveal>
           <p
-            className={`font-display italic text-base md:text-lg font-light mb-1 ${isDarkBg ? "text-white/80" : "text-[#751014]/80"
-              }`}
+            className={`font-display italic text-base md:text-lg font-light mb-1 ${
+              isDarkBg ? "text-white/80" : "text-[#751014]/80"
+            }`}
           >
             {numeral}
           </p>
@@ -70,16 +125,18 @@ function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
 
       <Reveal delay={40}>
         <div
-          className={`w-px h-5 md:h-7 mb-3 ${isDarkBg ? "bg-white/30" : "bg-[#751014]/30"
-            }`}
+          className={`w-px h-5 md:h-7 mb-3 ${
+            isDarkBg ? "bg-white/30" : "bg-[#751014]/30"
+          }`}
         />
       </Reveal>
 
       {chapter && (
         <Reveal delay={80}>
           <p
-            className={`text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-medium mb-2 ${isDarkBg ? "text-[#ffdd69]" : "text-[#751014]"
-              }`}
+            className={`text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-medium mb-2 ${
+              isDarkBg ? "text-[#ffdd69]" : "text-[#751014]"
+            }`}
           >
             {chapter}
           </p>
@@ -88,8 +145,9 @@ function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
 
       <Reveal delay={chapter ? 120 : 80}>
         <h2
-          className={`font-display text-4xl sm:text-5xl md:text-6xl font-normal tracking-wide ${isDarkBg ? "text-white" : "text-[#751014]"
-            }`}
+          className={`font-display text-4xl sm:text-5xl md:text-6xl font-normal tracking-wide ${
+            isDarkBg ? "text-white" : "text-[#751014]"
+          }`}
         >
           {title}
         </h2>
@@ -280,13 +338,10 @@ function TimelineItem({ time, label, last = false }) {
       <div className="hidden md:flex flex-1 flex-col items-center text-center group relative">
         {/* Step Marker & Connecting Line */}
         <div className="relative w-full flex items-center justify-center mb-6">
-          {/* Node Dot */}
           <div className="relative z-10 w-4 h-4 rounded-full bg-[#751014] flex items-center justify-center transition-transform duration-300 group-hover:scale-125">
             <div className="w-1.5 h-1.5 rounded-full bg-white" />
             <div className="absolute inset-0 rounded-full bg-[#751014] pulse-dot" />
           </div>
-
-          {/* Line segment connecting to next item */}
           {!last && (
             <div className="absolute left-1/2 w-full h-[2px] bg-[#751014]/20 top-1/2 -translate-y-1/2 z-0" />
           )}
@@ -316,7 +371,6 @@ function Swatch({ hex }) {
         className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 shadow-md transition-transform duration-300 group-hover:scale-110"
         style={{ backgroundColor: hex }}
       />
-      {/* Updated text styling for high contrast on dark background */}
       <span className="text-[10px] font-mono tracking-wider text-white/90 font-medium uppercase drop-shadow-sm">
         {hex}
       </span>
@@ -342,7 +396,10 @@ export default function WeddingInvite() {
   ];
 
   return (
-    <div className="min-h-screen w-full bg-white text-[#333333] overflow-x-hidden antialiased selection:bg-[#751014] selection:text-white">
+    <div className="min-h-screen w-full bg-white text-[#333333] overflow-x-hidden antialiased selection:bg-[#751014] selection:text-white relative">
+      {/* Falling Rose Petals Animation Layer */}
+      <FallingPetals count={25} />
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
         
@@ -385,6 +442,28 @@ export default function WeddingInvite() {
           100% { opacity: 0; }
         }
 
+        /* Falling Petals Animations */
+        @keyframes fall {
+          0% {
+            top: -10%;
+          }
+          100% {
+            top: 108%;
+          }
+        }
+
+        @keyframes sway {
+          0% {
+            transform: translateX(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateX(45px) rotate(180deg);
+          }
+          100% {
+            transform: translateX(-35px) rotate(360deg);
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .reveal { transition: none !important; opacity: 1 !important; transform: none !important; }
           .pulse-dot { animation: none !important; }
@@ -394,7 +473,6 @@ export default function WeddingInvite() {
       <div className="font-body">
         {/* -------------------------------------------------- HERO SECTION (BG #751014) */}
         <section className="relative bg-[#751014] text-white py-16 md:py-24 min-h-screen flex flex-col items-center justify-center overflow-hidden">
-          {/* Background Corner Roses */}
           <CornerFloral
             tone="#ffdd69"
             opacity={0.15}
@@ -417,7 +495,6 @@ export default function WeddingInvite() {
           />
 
           <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto px-6">
-            {/* Subtle Gold "YOU ARE INVITED" Subtext Header */}
             <Reveal delay={40}>
               <p className="text-[#ffdd69] text-[10px] sm:text-xs tracking-[0.45em] uppercase font-medium mb-3">
                 ✦ You Are Invited ✦
@@ -426,11 +503,9 @@ export default function WeddingInvite() {
 
             <Reveal delay={100} scale>
               <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[460px] md:h-[460px] flex items-center justify-center my-4">
-                {/* Outer Ring & Gold Inset */}
                 <div className="absolute inset-0 rounded-full border border-white/20 shadow-lg" />
                 <div className="absolute inset-3 rounded-full border border-[#ffdd69]/50" />
 
-                {/* Top & Bottom Rose Accents on Ring */}
                 <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#751014] px-3 rounded-full">
                   <Rose size={50} tone="#ffdd69" opacity={0.9} />
                 </div>
@@ -596,13 +671,22 @@ export default function WeddingInvite() {
           </div>
         </section>
 
-        {/* ------------------------------------------------------ ATTIRE (SECTION V - BG IMAGE) */}
-        <section
-          className="relative text-white py-24 md:py-36 text-center bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${bgImage})` }}
-        >
-          {/* Dark Overlay for Text Readability */}
-          <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+        {/* ------------------------------------------------------ ATTIRE (SECTION V - BG IMAGE WITH SEAMLESS FADE) */}
+        <section className="relative text-white py-24 md:py-36 text-center bg-white overflow-hidden">
+          {/* Background Image Container with Top & Bottom Fade Mask */}
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+            style={{
+              backgroundImage: `url(${bgImage})`,
+              WebkitMaskImage:
+                "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+              maskImage:
+                "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+            }}
+          >
+            {/* Overlay for contrast */}
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
 
           <div className="relative z-10 max-w-3xl mx-auto px-6">
             <SectionHeader
@@ -619,7 +703,7 @@ export default function WeddingInvite() {
               </p>
             </Reveal>
 
-            {/* Flex Container ensuring equal heights */}
+            {/* Equal Height Flex Cards */}
             <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mb-16 items-stretch justify-center">
               <div className="flex-1">
                 <Reveal delay={140} className="h-full">
@@ -652,7 +736,7 @@ export default function WeddingInvite() {
             </div>
 
             <Reveal delay={240}>
-              <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#ffffff] mb-8">
+              <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#ffdd69] mb-8">
                 Suggested Palette
               </p>
             </Reveal>
@@ -667,10 +751,10 @@ export default function WeddingInvite() {
         </section>
 
         {/* ----------------------------------------------------- CLOSING (SECTION VI - BG WHITE) */}
-        <section className="relative bg-white px-6 py-28 md:py-36 text-center">
-          <div className="relative z-10 max-w-xl mx-auto">
+        <section className="relative bg-white px-6 py-12 md:py-16 text-center overflow-hidden">
+          <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center">
             <Reveal delay={60}>
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center mb-4">
                 <Rose size={60} tone="#751014" opacity={0.85} />
               </div>
             </Reveal>
@@ -681,9 +765,17 @@ export default function WeddingInvite() {
               title="We Can't Wait"
               theme="dark"
             />
+
             <Reveal delay={120}>
-              <p className="text-xs tracking-[0.35em] uppercase font-semibold text-[#751014]">
+              <p className="text-xs tracking-[0.35em] uppercase font-semibold text-[#751014] mb-8">
                 With love, Ryan &amp; Abigail
+              </p>
+            </Reveal>
+
+            {/* Centered Watermark */}
+            <Reveal delay={160}>
+              <p className="text-[9px] md:text-[10px] tracking-[0.2em] uppercase text-gray-400 font-light">
+                Website by <span className="font-medium text-gray-600">Nicklaus Ling</span>
               </p>
             </Reveal>
           </div>
