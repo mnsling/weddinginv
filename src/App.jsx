@@ -486,7 +486,7 @@ export default function WeddingInvite() {
                     Mr. Zhi Cong Huang
                   </p>
                   <p className="font-display text-xl text-[#333333] leading-snug">
-                    Mrs. Shirley Y. Huang
+                    Mrs. Shirley Yu Huang
                   </p>
                 </div>
                 <div className="sm:pl-8">
@@ -494,10 +494,10 @@ export default function WeddingInvite() {
                     Parents of the Bride
                   </p>
                   <p className="font-display text-xl text-[#333333] leading-snug">
-                    Mr. Michael H. Ling
+                    Mr. Michael Ho Ling
                   </p>
                   <p className="font-display text-xl text-[#333333] leading-snug">
-                    Mrs. Marie Angelie S. Ling
+                    Mrs. Marie Angelie Sy Ling
                   </p>
                 </div>
               </div>
