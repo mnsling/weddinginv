@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import bgImage from "./assets/bg.jpg"; // Adjust path if assets is located elsewhere (e.g. "../assets/bg.jpg")
 
 /**
  * Ryan & Abigail — Wedding Invitation
  * -----------------------------------
  * Streamlined Hero section featuring "YOU ARE INVITED" as a subtle gold subtext
  * above the names, maximizing focus on the central moon gate ring and roses.
+ * Includes responsive Schedule of Events (Horizontal on Desktop / Vertical on Mobile).
  */
 
 // ---------------------------------------------------------------------------
@@ -58,9 +60,8 @@ function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
       {numeral && (
         <Reveal>
           <p
-            className={`font-display italic text-base md:text-lg font-light mb-1 ${
-              isDarkBg ? "text-white/80" : "text-[#751014]/80"
-            }`}
+            className={`font-display italic text-base md:text-lg font-light mb-1 ${isDarkBg ? "text-white/80" : "text-[#751014]/80"
+              }`}
           >
             {numeral}
           </p>
@@ -69,18 +70,16 @@ function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
 
       <Reveal delay={40}>
         <div
-          className={`w-px h-5 md:h-7 mb-3 ${
-            isDarkBg ? "bg-white/30" : "bg-[#751014]/30"
-          }`}
+          className={`w-px h-5 md:h-7 mb-3 ${isDarkBg ? "bg-white/30" : "bg-[#751014]/30"
+            }`}
         />
       </Reveal>
 
       {chapter && (
         <Reveal delay={80}>
           <p
-            className={`text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-medium mb-2 ${
-              isDarkBg ? "text-[#ffdd69]" : "text-[#751014]"
-            }`}
+            className={`text-[9px] md:text-[10px] tracking-[0.4em] uppercase font-medium mb-2 ${isDarkBg ? "text-[#ffdd69]" : "text-[#751014]"
+              }`}
           >
             {chapter}
           </p>
@@ -89,9 +88,8 @@ function SectionHeader({ numeral, chapter, title, theme = "dark" }) {
 
       <Reveal delay={chapter ? 120 : 80}>
         <h2
-          className={`font-display text-4xl sm:text-5xl md:text-6xl font-normal tracking-wide ${
-            isDarkBg ? "text-white" : "text-[#751014]"
-          }`}
+          className={`font-display text-4xl sm:text-5xl md:text-6xl font-normal tracking-wide ${isDarkBg ? "text-white" : "text-[#751014]"
+            }`}
         >
           {title}
         </h2>
@@ -254,27 +252,57 @@ function EventCard({ label, title, address, time, mapQuery }) {
 }
 
 // ---------------------------------------------------------------------------
-// Timeline Row Component
+// Responsive Timeline Item Component
 // ---------------------------------------------------------------------------
-function TimelineRow({ time, label, last = false }) {
+function TimelineItem({ time, label, last = false }) {
   return (
-    <div className="flex gap-6 md:gap-10 group">
-      <div className="flex flex-col items-center">
-        <div className="relative w-3 h-3 my-1">
-          <div className="absolute inset-0 rounded-full bg-[#751014] pulse-dot" />
-          <div className="absolute inset-0 rounded-full bg-[#751014]" />
+    <>
+      {/* MOBILE LAYOUT: Vertical (hidden on md screens and above) */}
+      <div className="flex gap-6 group md:hidden">
+        <div className="flex flex-col items-center">
+          <div className="relative w-3 h-3 my-1">
+            <div className="absolute inset-0 rounded-full bg-[#751014] pulse-dot" />
+            <div className="absolute inset-0 rounded-full bg-[#751014]" />
+          </div>
+          {!last && <div className="w-px flex-1 bg-[#751014]/20 my-1" />}
         </div>
-        {!last && <div className="w-px flex-1 bg-[#751014]/20 my-1" />}
+        <div className="pb-9 transition-transform duration-300 group-hover:translate-x-1">
+          <p className="text-[#751014] text-[11px] font-semibold tracking-[0.25em] uppercase mb-1">
+            {time}
+          </p>
+          <p className="font-display text-2xl text-[#333333] font-medium tracking-wide">
+            {label}
+          </p>
+        </div>
       </div>
-      <div className="pb-9 transition-transform duration-300 group-hover:translate-x-1">
-        <p className="text-[#751014] text-[11px] font-semibold tracking-[0.25em] uppercase mb-1">
-          {time}
-        </p>
-        <p className="font-display text-2xl text-[#333333] font-medium tracking-wide">
-          {label}
-        </p>
+
+      {/* DESKTOP LAYOUT: Horizontal Step (hidden below md screens) */}
+      <div className="hidden md:flex flex-1 flex-col items-center text-center group relative">
+        {/* Step Marker & Connecting Line */}
+        <div className="relative w-full flex items-center justify-center mb-6">
+          {/* Node Dot */}
+          <div className="relative z-10 w-4 h-4 rounded-full bg-[#751014] flex items-center justify-center transition-transform duration-300 group-hover:scale-125">
+            <div className="w-1.5 h-1.5 rounded-full bg-white" />
+            <div className="absolute inset-0 rounded-full bg-[#751014] pulse-dot" />
+          </div>
+
+          {/* Line segment connecting to next item */}
+          {!last && (
+            <div className="absolute left-1/2 w-full h-[2px] bg-[#751014]/20 top-1/2 -translate-y-1/2 z-0" />
+          )}
+        </div>
+
+        {/* Text Details */}
+        <div className="transition-transform duration-300 group-hover:-translate-y-1 px-2">
+          <p className="text-[#751014] text-xs font-semibold tracking-[0.2em] uppercase mb-1">
+            {time}
+          </p>
+          <p className="font-display text-xl lg:text-2xl text-[#333333] font-medium tracking-wide leading-tight">
+            {label}
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
@@ -285,10 +313,11 @@ function Swatch({ hex }) {
   return (
     <div className="flex flex-col items-center gap-2 group cursor-default">
       <div
-        className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-black/10 shadow-sm transition-transform duration-300 group-hover:scale-110 group-hover:shadow-md"
+        className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 shadow-md transition-transform duration-300 group-hover:scale-110"
         style={{ backgroundColor: hex }}
       />
-      <span className="text-[10px] font-mono tracking-wider text-gray-500 uppercase">
+      {/* Updated text styling for high contrast on dark background */}
+      <span className="text-[10px] font-mono tracking-wider text-white/90 font-medium uppercase drop-shadow-sm">
         {hex}
       </span>
     </div>
@@ -547,7 +576,7 @@ export default function WeddingInvite() {
             className="absolute -right-24 bottom-10 pointer-events-none"
           />
 
-          <div className="relative z-10 max-w-lg mx-auto px-6">
+          <div className="relative z-10 max-w-lg md:max-w-5xl mx-auto px-6">
             <SectionHeader
               numeral="IV"
               chapter="THE DAY"
@@ -556,20 +585,26 @@ export default function WeddingInvite() {
             />
 
             <Reveal delay={120}>
-              <div className="pl-4 sm:pl-0">
-                <TimelineRow time="2:30 PM" label="Wedding Assembly" />
-                <TimelineRow time="3:00 PM" label="Ceremony" />
-                <TimelineRow time="6:00 PM" label="Cocktails" />
-                <TimelineRow time="7:00 PM" label="Reception & Dinner" />
-                <TimelineRow time="9:00 PM" label="Party" last />
+              <div className="pl-4 sm:pl-0 md:flex md:items-start md:justify-between">
+                <TimelineItem time="2:30 PM" label="Wedding Assembly" />
+                <TimelineItem time="3:00 PM" label="Ceremony" />
+                <TimelineItem time="6:00 PM" label="Cocktails" />
+                <TimelineItem time="7:00 PM" label="Reception & Dinner" />
+                <TimelineItem time="9:00 PM" label="Party" last />
               </div>
             </Reveal>
           </div>
         </section>
 
-        {/* ------------------------------------------------------ ATTIRE (SECTION V - BG #751014) */}
-        <section className="relative bg-[#751014] text-white py-24 md:py-36 text-center">
-          <div className="relative max-w-3xl mx-auto px-6">
+        {/* ------------------------------------------------------ ATTIRE (SECTION V - BG IMAGE) */}
+        <section
+          className="relative text-white py-24 md:py-36 text-center bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${bgImage})` }}
+        >
+          {/* Dark Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+
+          <div className="relative z-10 max-w-3xl mx-auto px-6">
             <SectionHeader
               numeral="V"
               chapter="ATTIRE DRESS CODE"
@@ -578,40 +613,46 @@ export default function WeddingInvite() {
             />
 
             <Reveal delay={100}>
-              <p className="text-white/80 text-sm md:text-base mb-14 max-w-md mx-auto leading-relaxed font-light">
+              <p className="text-white/90 text-sm md:text-base mb-14 max-w-md mx-auto leading-relaxed font-light">
                 We'd love for our photos together to feel warm and cohesive —
                 here's a guide for what to wear.
               </p>
             </Reveal>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 mb-16">
-              <Reveal delay={140}>
-                <div className="bg-white rounded-2xl p-8 border border-white/20 shadow-md">
-                  <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
-                    Gentlemen
-                  </p>
-                  <p className="font-display text-2xl md:text-3xl text-[#333333]">
-                    Suit &amp; Tie
-                  </p>
-                </div>
-              </Reveal>
-              <Reveal delay={200}>
-                <div className="bg-white rounded-2xl p-8 border border-white/20 shadow-md">
-                  <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
-                    Ladies
-                  </p>
-                  <p className="font-display text-2xl md:text-3xl text-[#333333]">
-                    Long Gown
-                  </p>
-                  <p className="text-[11px] text-[#751014] tracking-wider uppercase font-medium mt-1">
-                    strictly no black or white
-                  </p>
-                </div>
-              </Reveal>
+            {/* Flex Container ensuring equal heights */}
+            <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mb-16 items-stretch justify-center">
+              <div className="flex-1">
+                <Reveal delay={140} className="h-full">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg h-full flex flex-col justify-center items-center">
+                    <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
+                      Gentlemen
+                    </p>
+                    <p className="font-display text-2xl md:text-3xl text-[#333333]">
+                      Suit &amp; Tie
+                    </p>
+                  </div>
+                </Reveal>
+              </div>
+
+              <div className="flex-1">
+                <Reveal delay={200} className="h-full">
+                  <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-lg h-full flex flex-col justify-center items-center">
+                    <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
+                      Ladies
+                    </p>
+                    <p className="font-display text-2xl md:text-3xl text-[#333333]">
+                      Long Gown
+                    </p>
+                    <p className="text-[11px] text-[#751014] tracking-wider uppercase font-medium mt-1">
+                      strictly no black or white
+                    </p>
+                  </div>
+                </Reveal>
+              </div>
             </div>
 
             <Reveal delay={240}>
-              <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#ffdd69] mb-8">
+              <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#ffffff] mb-8">
                 Suggested Palette
               </p>
             </Reveal>
