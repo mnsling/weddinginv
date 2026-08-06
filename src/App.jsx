@@ -1,11 +1,11 @@
 import FallingPetals from "./components/fallingPetal";
-import Hero from "./sections/Hero";
-import Parents from "./sections/Parents";
-import Details from "./sections/Details";
-import Timeline from "./sections/Timeline";
-import Attire from "./sections/Attire";
-import RSVP from "./sections/RSVP";
-import Closing from "./sections/Closing";
+import Hero from "./sections/hero";
+import Parents from "./sections/parents";
+import Details from "./sections/details";
+import Timeline from "./sections/timeline";
+import Attire from "./sections/attire";
+import RSVP from "./sections/rsvp";
+import Closing from "./sections/closing";
 
 /**
  * Ryan & Abigail — Wedding Invitation
