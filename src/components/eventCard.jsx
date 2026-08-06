@@ -1,4 +1,4 @@
-import Rose from "./Rose";
+import Rose from "./rose";
 
 // ---------------------------------------------------------------------------
 // Event Card Component

@@ -1,7 +1,7 @@
-import Reveal from "../components/Reveal";
-import Rose from "../components/Rose";
-import SectionHeader from "../components/SectionHeader";
-import TimelineItem from "../components/TimelineItem";
+import Reveal from "../components/reveal";
+import Rose from "../components/rose";
+import SectionHeader from "../components/sectionHeader";
+import TimelineItem from "../components/timelineItem";
 
 // ---------------------------------------------------------------------------
 // Section IV — Timeline / Schedule of Events (bg white)

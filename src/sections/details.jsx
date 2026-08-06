@@ -1,7 +1,7 @@
-import Reveal from "../components/Reveal";
-import Rose from "../components/Rose";
-import SectionHeader from "../components/SectionHeader";
-import EventCard from "../components/EventCard";
+import Reveal from "../components/reveal";
+import Rose from "../components/rose";
+import SectionHeader from "../components/sectionHeader";
+import EventCard from "../components/eventCard";
 
 // ---------------------------------------------------------------------------
 // Section III — Details (bg #751014)
