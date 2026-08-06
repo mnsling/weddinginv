@@ -1,7 +1,7 @@
-import Reveal from "../components/Reveal";
-import Rose from "../components/Rose";
-import CornerFloral from "../components/CornerFloral";
-import CountdownStat from "../components/CountdownStat";
+import Reveal from "../components/reveal";
+import Rose from "../components/rose";
+import CornerFloral from "../components/cornerFloral";
+import CountdownStat from "../components/countdownStat";
 import useCountdown from "../hooks/useCountdown";
 
 // ---------------------------------------------------------------------------
