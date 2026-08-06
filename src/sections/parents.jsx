@@ -30,7 +30,7 @@ export default function Parents() {
         />
 
         <Reveal delay={80}>
-          <p className="font-display text-2xl md:text-3xl leading-relaxed text-[#333333] mb-12 max-w-xl mx-auto font-light">
+          <p className="font-display text-xl md:text-3xl leading-relaxed text-[#333333] mb-12 max-w-xl mx-auto font-light">
             We joyfully invite you to witness our marriage and share in the
             beginning of our life together.
           </p>
@@ -48,10 +48,10 @@ export default function Parents() {
               <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-3">
                 Parents of the Groom
               </p>
-              <p className="font-display text-xl text-[#333333] leading-snug">
+              <p className="font-display md:text-xl text-md text-[#333333] leading-snug">
                 Mr. Zhi Cong Huang
               </p>
-              <p className="font-display text-xl text-[#333333] leading-snug">
+              <p className="font-display md:text-xl text-md text-[#333333] leading-snug">
                 Mrs. Shirley Yu Huang
               </p>
             </div>
@@ -59,10 +59,10 @@ export default function Parents() {
               <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-3">
                 Parents of the Bride
               </p>
-              <p className="font-display text-xl text-[#333333] leading-snug">
+              <p className="font-display md:text-xl text-md text-[#333333] leading-snug">
                 Mr. Michael Ho Ling
               </p>
-              <p className="font-display text-xl text-[#333333] leading-snug">
+              <p className="font-display md:text-xl text-md text-[#333333] leading-snug">
                 Mrs. Marie Angelie Sy Ling
               </p>
             </div>

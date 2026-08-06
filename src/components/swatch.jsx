@@ -8,9 +8,6 @@ export default function Swatch({ hex }) {
         className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-white/20 shadow-md transition-transform duration-300 group-hover:scale-110"
         style={{ backgroundColor: hex }}
       />
-      <span className="text-[10px] font-mono tracking-wider text-white/90 font-medium uppercase drop-shadow-sm">
-        {hex}
-      </span>
     </div>
   );
 }

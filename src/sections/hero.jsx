@@ -29,29 +29,18 @@ export default function Hero() {
         </Reveal>
 
         <Reveal delay={100} scale>
-          <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[460px] md:h-[460px] flex items-center justify-center my-4">
-            <div className="absolute inset-0 rounded-full border border-white/20 shadow-lg" />
-            <div className="absolute inset-3 rounded-full border border-[#ffdd69]/50" />
+          <div className="flex flex-col items-center max-w-2xl mx-auto">
+            <p className="text-[10px] tracking-[0.35em] uppercase text-[#ffdd69] mb-4 font-semibold">
+              Together with their families
+            </p>
 
-            <div className="absolute -top-7 left-1/2 -translate-x-1/2 bg-[#751014] px-3 rounded-full">
-              <Rose size={50} tone="#ffdd69" opacity={0.9} />
-            </div>
-            <div className="absolute -bottom-7 left-1/2 -translate-x-1/2 bg-[#751014] px-3 rounded-full">
-              <Rose size={50} tone="#ffdd69" opacity={0.9} />
-            </div>
+            <Rose size={34} tone="#ffdd69" opacity={0.75} className="mb-2" />
 
-            <div className="text-center px-6 py-2">
-              <p className="text-[10px] tracking-[0.35em] uppercase text-[#ffdd69] mb-3 font-semibold">
-                Together with their families
-              </p>
-              <h1 className="font-display text-5xl sm:text-7xl md:text-8xl leading-[0.95] text-white font-normal tracking-tight">
-                Ryan <br />
-                <span className="text-3xl sm:text-5xl md:text-6xl italic font-light text-[#ffdd69]">
-                  &amp;
-                </span>
-                <br /> Abigail
-              </h1>
-            </div>
+            <h1 className="font-script text-white text-5xl sm:text-6xl md:text-8xl leading-[1.25] tracking-wide px-2">
+              Ryan &amp; Abigail
+            </h1>
+
+            <Rose size={34} tone="#ffdd69" opacity={0.75} className="mt-2" />
           </div>
         </Reveal>
 

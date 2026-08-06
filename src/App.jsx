@@ -1,10 +1,11 @@
 import FallingPetals from "./components/fallingPetal";
-import Hero from "./sections/hero";
-import Parents from "./sections/parents";
-import Details from "./sections/details";
-import Timeline from "./sections/timeline";
-import Attire from "./sections/attire";
-import Closing from "./sections/closing";
+import Hero from "./sections/Hero";
+import Parents from "./sections/Parents";
+import Details from "./sections/Details";
+import Timeline from "./sections/Timeline";
+import Attire from "./sections/Attire";
+import RSVP from "./sections/RSVP";
+import Closing from "./sections/Closing";
 
 /**
  * Ryan & Abigail — Wedding Invitation
@@ -21,9 +22,10 @@ export default function WeddingInvite() {
       <FallingPetals count={25} />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
         
         .font-display { font-family: 'Cormorant Garamond', serif; }
+        .font-script { font-family: 'Pinyon Script', cursive; }
         .font-cjk { font-family: 'Noto Serif SC', serif; }
         .font-body, .font-inter { font-family: 'Inter', sans-serif; }
         html { scroll-behavior: smooth; }
@@ -96,6 +98,7 @@ export default function WeddingInvite() {
         <Details />
         <Timeline />
         <Attire />
+        <RSVP />
         <Closing />
       </div>
     </div>
