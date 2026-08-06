@@ -24,7 +24,7 @@ export default function Timeline() {
 
       <div className="relative z-10 max-w-lg md:max-w-5xl mx-auto px-6">
         <SectionHeader
-          numeral="IV"
+          numeral="V"
           chapter="THE DAY"
           title="Schedule of Events"
           theme="dark"
@@ -32,10 +32,12 @@ export default function Timeline() {
 
         <Reveal delay={120}>
           <div className="pl-4 sm:pl-0 md:flex md:items-start md:justify-between">
-            <TimelineItem time="2:30 PM" label="Wedding Assembly" />
+            <TimelineItem time="2:30 PM" label="Assembly" />
             <TimelineItem time="3:00 PM" label="Ceremony" />
+            <TimelineItem time="4:00 PM" label="Pictorials" />
             <TimelineItem time="6:00 PM" label="Cocktails" />
-            <TimelineItem time="7:00 PM" label="Reception & Dinner" />
+            <TimelineItem time="7:00 PM" label="Program" />
+            <TimelineItem time="7:30 PM" label="Dinner" />
             <TimelineItem time="9:00 PM" label="Party" last />
           </div>
         </Reveal>

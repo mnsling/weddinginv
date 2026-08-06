@@ -22,7 +22,7 @@ export default function RSVP() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-6">
         <SectionHeader
-          numeral="VI"
+          numeral="VII"
           chapter="KINDLY RESPOND"
           title="RSVP"
           theme="dark"
@@ -31,20 +31,20 @@ export default function RSVP() {
         <Reveal delay={80}>
           <div className="mt-12 text-center">
             {/* Reserved Seats */}
-            <div className="flex items-center justify-center gap-4 mb-8">
-              <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#751014]">
+            <div className="flex items-end justify-center gap-2 mb-8">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-[#751014]">
                 We Have Reserved
               </p>
 
-              <div className="w-16 md:w-24 border-b border-[#751014]" />
+              <div className="w-16 md:w-12 border-b border-[#751014]" />
 
-              <p className="text-[11px] md:text-xs uppercase tracking-[0.35em] text-[#751014]">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.35em] text-[#751014]">
                 Seat(s) For You
               </p>
             </div>
 
             {/* RSVP Deadline */}
-            <p className="text-[11px] md:text-xs uppercase tracking-[0.22em] leading-7 text-[#751014]">
+            <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] leading-7 text-[#751014]">
               The favor of your reply is requested on or before
               <br />
               <span className="font-semibold">

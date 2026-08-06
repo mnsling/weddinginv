@@ -23,7 +23,7 @@ export default function Details() {
       />
       <div className="relative max-w-4xl mx-auto px-6">
         <SectionHeader
-          numeral="III"
+          numeral="IV"
           chapter="THE DETAILS"
           title="When & Where"
           theme="light"
@@ -44,7 +44,7 @@ export default function Details() {
               label="Reception"
               title="Acacia Hotel Davao"
               address="J.P. Laurel Avenue, Davao City"
-              time="Following the ceremony"
+              time="Reception to follow"
               mapQuery="Acacia Hotel Davao, J.P. Laurel Avenue, Davao City"
             />
           </Reveal>

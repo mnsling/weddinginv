@@ -9,13 +9,18 @@
     --font-sans: 'Inter', sans-serif;
   }
 
-  h1, h2, h3, .font-serif {
+  h1,
+  h2,
+  h3,
+  .font-serif {
     font-family: var(--font-serif);
   }
 
-  body, .font-sans {
+  body,
+  .font-sans {
     font-family: var(--font-sans);
-    background-color: #f7f3ef; /* Off-white textured background */
+    background-color: #f7f3ef;
+    /* Off-white textured background */
     color: #1a1a1a;
   }
 }

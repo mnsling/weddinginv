@@ -62,7 +62,7 @@ export default function Attire() {
 
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <SectionHeader
-          numeral="V"
+          numeral="VI"
           chapter="ATTIRE DRESS CODE"
           title="Formal Attire"
           theme="light"

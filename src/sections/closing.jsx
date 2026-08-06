@@ -22,9 +22,9 @@ export default function Closing() {
         </Reveal>
 
         <SectionHeader
-          numeral="VII"
-          chapter="SEE YOU SOON"
-          title="We Can't Wait"
+          numeral="VIII"
+          chapter="UNTIL OUR WEDDING DAY"
+          title="See You Soon."
           theme="light"
         />
 

@@ -36,9 +36,19 @@ export default function Hero() {
 
             <Rose size={34} tone="#ffdd69" opacity={0.75} className="mb-2" />
 
-            <h1 className="font-script text-white text-5xl sm:text-6xl md:text-8xl leading-[1.25] tracking-wide px-2">
-              Ryan &amp; Abigail
-            </h1>
+            <div className="flex flex-col items-center">
+              <h1 className="font-mea text-white text-6xl md:text-8xl leading-[1.05] tracking-wide">
+                Ryan Benedict
+              </h1>
+
+              <span className="font-script text-[#ffdd69] text-5xl md:text-7xl leading-none my-1">
+                &
+              </span>
+
+              <h1 className="font-mea text-white text-6xl md:text-8xl leading-[1.05] tracking-wide">
+                Abigail
+              </h1>
+            </div>
 
             <Rose size={34} tone="#ffdd69" opacity={0.75} className="mt-2" />
           </div>

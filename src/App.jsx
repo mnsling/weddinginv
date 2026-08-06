@@ -1,6 +1,7 @@
 import FallingPetals from "./components/fallingPetal";
 import Hero from "./sections/hero";
 import Parents from "./sections/parents";
+import Sponsors from "./sections/sponsors";
 import Details from "./sections/details";
 import Timeline from "./sections/timeline";
 import Attire from "./sections/attire";
@@ -23,7 +24,9 @@ export default function WeddingInvite() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Serif+SC:wght@400;600&family=Inter:wght@300;400;500;600&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap');
+
+        .font-mea { font-family: 'Mea Culpa', cursive; }
         .font-display { font-family: 'Cormorant Garamond', serif; }
         .font-script { font-family: 'Pinyon Script', cursive; }
         .font-cjk { font-family: 'Noto Serif SC', serif; }
@@ -95,6 +98,7 @@ export default function WeddingInvite() {
       <div className="font-body">
         <Hero />
         <Parents />
+        <Sponsors />
         <Details />
         <Timeline />
         <Attire />
