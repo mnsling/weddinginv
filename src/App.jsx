@@ -257,22 +257,55 @@ function CornerFloral({ tone = "#751014", opacity = 0.25, className = "" }) {
 }
 
 // ---------------------------------------------------------------------------
-// Countdown Hook
+// Countdown Hook — ticks every second, returns days/hours/minutes/seconds
 // ---------------------------------------------------------------------------
-function useDaysUntil(dateString) {
-  const [days, setDays] = useState(0);
+function useCountdown(dateString) {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+    done: false,
+  });
+
   useEffect(() => {
     const target = new Date(dateString).getTime();
     const update = () => {
-      const now = Date.now();
-      const diff = Math.max(0, Math.ceil((target - now) / (1000 * 60 * 60 * 24)));
-      setDays(diff);
+      const diff = target - Date.now();
+      if (diff <= 0) {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0, done: true });
+        return;
+      }
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+        done: false,
+      });
     };
     update();
-    const id = setInterval(update, 1000 * 60 * 60);
+    const id = setInterval(update, 1000);
     return () => clearInterval(id);
   }, [dateString]);
-  return days;
+
+  return timeLeft;
+}
+
+// ---------------------------------------------------------------------------
+// Countdown display — four ticking stat blocks
+// ---------------------------------------------------------------------------
+function CountdownStat({ value, label }) {
+  return (
+    <div className="flex flex-col items-center min-w-[52px] sm:min-w-[64px]">
+      <span className="font-inter text-2xl sm:text-3xl md:text-4xl text-white tabular-nums leading-none">
+        {String(value).padStart(2, "0")}
+      </span>
+      <span className="text-[8px] sm:text-[9px] tracking-[0.25em] uppercase text-[#ffdd69] mt-1.5">
+        {label}
+      </span>
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -382,7 +415,7 @@ function Swatch({ hex }) {
 // Main Component
 // ---------------------------------------------------------------------------
 export default function WeddingInvite() {
-  const days = useDaysUntil("2026-10-03T15:00:00");
+  const countdown = useCountdown("2026-10-03T15:00:00");
 
   const palette = [
     "#693e21",
@@ -392,6 +425,7 @@ export default function WeddingInvite() {
     "#6f7b32",
     "#e17a13",
     "#ffdd69",
+    "#ed9e9e",
     "#ebd1b7",
   ];
 
@@ -496,9 +530,13 @@ export default function WeddingInvite() {
 
           <div className="relative z-10 flex flex-col items-center text-center max-w-3xl mx-auto px-6">
             <Reveal delay={40}>
-              <p className="text-[#ffdd69] text-[10px] sm:text-xs tracking-[0.45em] uppercase font-medium mb-3">
-                ✦ You Are Invited ✦
-              </p>
+              <div className="flex items-center justify-center gap-3 mb-3">
+                <Rose size={26} tone="#ffdd69" opacity={0.6} />
+                <p className="text-[#ffdd69] text-[10px] sm:text-xs tracking-[0.45em] uppercase font-medium">
+                  You Are Invited
+                </p>
+                <Rose size={26} tone="#ffdd69" opacity={0.6} />
+              </div>
             </Reveal>
 
             <Reveal delay={100} scale>
@@ -541,10 +579,22 @@ export default function WeddingInvite() {
             </Reveal>
 
             <Reveal delay={280}>
-              <div className="inline-block mt-5 px-5 py-1.5 rounded-full bg-white/10 border border-[#ffdd69]/30 backdrop-blur-sm">
-                <p className="text-[#ffdd69] text-[11px] tracking-[0.25em] uppercase font-medium">
-                  {days > 0 ? `${days} days to go` : "Today is the day"}
-                </p>
+              <div className="mt-6 flex items-center justify-center gap-3 sm:gap-5 px-6 py-4 rounded-2xl bg-white/10 border border-[#ffdd69]/30 backdrop-blur-sm">
+                {countdown.done ? (
+                  <p className="text-[#ffdd69] text-xs tracking-[0.25em] uppercase font-medium px-4">
+                    Today is the day
+                  </p>
+                ) : (
+                  <>
+                    <CountdownStat value={countdown.days} label="Days" />
+                    <span className="text-[#ffdd69]/40 font-display text-2xl -mt-3">:</span>
+                    <CountdownStat value={countdown.hours} label="Hrs" />
+                    <span className="text-[#ffdd69]/40 font-display text-2xl -mt-3">:</span>
+                    <CountdownStat value={countdown.minutes} label="Min" />
+                    <span className="text-[#ffdd69]/40 font-display text-2xl -mt-3">:</span>
+                    <CountdownStat value={countdown.seconds} label="Sec" />
+                  </>
+                )}
               </div>
             </Reveal>
           </div>
@@ -555,13 +605,13 @@ export default function WeddingInvite() {
           <Rose
             size={220}
             tone="#751014"
-            opacity={0.04}
+            opacity={0.06}
             className="absolute -left-16 top-1/2 -translate-y-1/2 pointer-events-none"
           />
           <Rose
             size={220}
             tone="#751014"
-            opacity={0.04}
+            opacity={0.06}
             className="absolute -right-16 top-1/2 -translate-y-1/2 pointer-events-none"
           />
 
@@ -578,6 +628,12 @@ export default function WeddingInvite() {
                 We joyfully invite you to witness our marriage and share in the
                 beginning of our life together.
               </p>
+            </Reveal>
+
+            <Reveal delay={110}>
+              <div className="flex justify-center mb-8">
+                <Rose size={40} tone="#751014" opacity={0.6} />
+              </div>
             </Reveal>
 
             <Reveal delay={160}>
@@ -610,7 +666,19 @@ export default function WeddingInvite() {
         </section>
 
         {/* ----------------------------------------------------- DETAILS (SECTION III - BG #751014) */}
-        <section className="relative bg-[#751014] text-white py-24 md:py-36">
+        <section className="relative bg-[#751014] text-white py-24 md:py-36 overflow-hidden">
+          <Rose
+            size={200}
+            tone="#ffdd69"
+            opacity={0.06}
+            className="absolute -top-16 -left-14 pointer-events-none"
+          />
+          <Rose
+            size={240}
+            tone="#ffffff"
+            opacity={0.05}
+            className="absolute -bottom-20 -right-16 pointer-events-none"
+          />
           <div className="relative max-w-4xl mx-auto px-6">
             <SectionHeader
               numeral="III"
@@ -644,6 +712,12 @@ export default function WeddingInvite() {
 
         {/* ---------------------------------------------------- TIMELINE (SECTION IV - BG WHITE) */}
         <section className="relative bg-white text-[#333333] py-24 md:py-36 overflow-hidden">
+          <Rose
+            size={200}
+            tone="#751014"
+            opacity={0.03}
+            className="absolute -left-20 -top-14 pointer-events-none"
+          />
           <Rose
             size={280}
             tone="#751014"
@@ -687,6 +761,19 @@ export default function WeddingInvite() {
             {/* Overlay for contrast */}
             <div className="absolute inset-0 bg-black/40" />
           </div>
+
+          <Rose
+            size={130}
+            tone="#ffdd69"
+            opacity={0.18}
+            className="absolute top-6 left-2 sm:left-8 pointer-events-none"
+          />
+          <Rose
+            size={150}
+            tone="#ffffff"
+            opacity={0.14}
+            className="absolute bottom-6 right-2 sm:right-8 pointer-events-none"
+          />
 
           <div className="relative z-10 max-w-3xl mx-auto px-6">
             <SectionHeader
@@ -752,6 +839,12 @@ export default function WeddingInvite() {
 
         {/* ----------------------------------------------------- CLOSING (SECTION VI - BG WHITE) */}
         <section className="relative bg-white px-6 py-12 md:py-16 text-center overflow-hidden">
+          <Rose
+            size={320}
+            tone="#751014"
+            opacity={0.04}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          />
           <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center">
             <Reveal delay={60}>
               <div className="flex justify-center mb-4">
