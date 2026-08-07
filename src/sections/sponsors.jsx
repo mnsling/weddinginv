@@ -35,14 +35,14 @@ export default function Sponsors() {
             </h3>
 
             <div className="grid grid-cols-2 gap-6 text-center">
-              <div className="space-y-3 font-display text-lg">
+              <div className="space-y-3 font-display text-base md:text-lg">
                 <p>Mr. Jose Uy</p>
                 <p>Mr. Jose Go</p>
                 <p>Mr. Philip Ling</p>
                 <p>Mr. Orlando Juan</p>
               </div>
 
-              <div className="space-y-3 font-display text-lg">
+              <div className="space-y-3 font-display text-base md:text-lg">
                 <p>Mrs. Erlie Uy</p>
                 <p>Mrs. Roselyn Wu</p>
                 <p>Mrs. Lesly Ling</p>
@@ -52,25 +52,25 @@ export default function Sponsors() {
           </div>
         </Reveal>
 
-        {/* Best Man & Matron */}
+        {/* Best Man & Matron of Honor */}
         <Reveal delay={120}>
-          <div className="grid md:grid-cols-2 gap-14 mb-20 text-center">
+          <div className="grid grid-cols-2 gap-8 md:gap-14 mb-20 text-center">
             <div>
-              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-5">
+              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-5 text-sm md:text-base">
                 Best Man
               </h3>
 
-              <p className="font-display text-lg">
+              <p className="font-display text-base md:text-lg">
                 Mr. John Elijah Ramos
               </p>
             </div>
 
             <div>
-              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-5">
+              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-5 text-sm md:text-base">
                 Matron of Honor
               </h3>
 
-              <p className="font-display text-lg">
+              <p className="font-display text-base md:text-lg">
                 Mrs. Christine Anne Ramos
               </p>
             </div>
@@ -79,13 +79,13 @@ export default function Sponsors() {
 
         {/* Groomsmen & Bridesmaids */}
         <Reveal delay={160}>
-          <div className="grid md:grid-cols-2 gap-16 mb-20 text-center">
+          <div className="grid grid-cols-2 gap-8 md:gap-16 mb-20 text-center">
             <div>
-              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6">
+              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6 text-sm md:text-base">
                 Groomsmen
               </h3>
 
-              <div className="space-y-2 font-display">
+              <div className="space-y-2 font-display text-sm md:text-lg">
                 <p>Mr. Mike Nicklaus Ling</p>
                 <p>Mr. Rich Adrian Huang</p>
                 <p>Mr. Miguel Ivan Colina</p>
@@ -95,11 +95,11 @@ export default function Sponsors() {
             </div>
 
             <div>
-              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6">
+              <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6 text-sm md:text-base">
                 Bridesmaids
               </h3>
 
-              <div className="space-y-2 font-display">
+              <div className="space-y-2 font-display text-sm md:text-lg">
                 <p>Ms. Kleah Hernaez</p>
                 <p>Ms. Kateleen Marie Hatico</p>
                 <p>Ms. Donita Jane Abear</p>
@@ -117,37 +117,39 @@ export default function Sponsors() {
               Secondary Sponsors
             </h3>
 
-            <div className="grid md:grid-cols-3 gap-10 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 text-center">
               <div>
-                <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5">
+                <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
                   Candle
                 </h4>
 
-                <div className="space-y-2 font-display">
+                <div className="space-y-2 font-display text-sm md:text-lg">
                   <p>Mr. Kurt Cañedo</p>
                   <p>Ms. Heidi Lynn Ling</p>
                 </div>
               </div>
 
               <div>
-                <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5">
+                <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
                   Veil
                 </h4>
 
-                <div className="space-y-2 font-display">
+                <div className="space-y-2 font-display text-sm md:text-lg">
                   <p>Mr. Kyle Kyson Tay</p>
                   <p>Mrs. Sarah Tay</p>
                 </div>
               </div>
 
-              <div>
-                <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5">
-                  Cord
-                </h4>
+              <div className="col-span-2 md:col-span-1 flex justify-center">
+                <div>
+                  <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
+                    Cord
+                  </h4>
 
-                <div className="space-y-2 font-display">
-                  <p>Mr. Anthony Stewart Ang</p>
-                  <p>Mrs. Ruzette Tiffany Ang</p>
+                  <div className="space-y-2 font-display text-sm md:text-lg">
+                    <p>Mr. Anthony Stewart Ang</p>
+                    <p>Mrs. Ruzette Tiffany Ang</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -156,29 +158,37 @@ export default function Sponsors() {
 
         {/* Bearers */}
         <Reveal delay={260}>
-          <div className="grid md:grid-cols-3 gap-10 text-center mb-16">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 text-center mb-20">
             <div>
-              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5">
+              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
                 Ring Bearer
               </h4>
 
-              <p className="font-display">Andrei Richmond Ang</p>
+              <p className="font-display text-sm md:text-lg">
+                Andrei Richmond Ang
+              </p>
             </div>
 
             <div>
-              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5">
+              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
                 Coin Bearer
               </h4>
 
-              <p className="font-display">Liamson Tay</p>
+              <p className="font-display text-sm md:text-lg">
+                Liamson Tay
+              </p>
             </div>
 
-            <div>
-              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5">
-                Bible Bearer
-              </h4>
+            <div className="col-span-2 md:col-span-1 flex justify-center">
+              <div>
+                <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
+                  Bible Bearer
+                </h4>
 
-              <p className="font-display">Rivers Sy</p>
+                <p className="font-display text-sm md:text-lg">
+                  Rivers Sy
+                </p>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -186,11 +196,11 @@ export default function Sponsors() {
         {/* Flower Girls */}
         <Reveal delay={300}>
           <div className="text-center">
-            <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6">
+            <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6 text-base md:text-lg">
               Flower Girls
             </h3>
 
-            <div className="space-y-2 font-display">
+            <div className="space-y-2 font-display text-sm md:text-lg">
               <p>Sofia Therese Ang</p>
               <p>Ember Kiera Cañedo</p>
             </div>
