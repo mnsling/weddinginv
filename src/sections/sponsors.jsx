@@ -29,7 +29,7 @@ export default function Sponsors() {
 
         {/* Principal Sponsors */}
         <Reveal delay={80}>
-          <div className="mb-20">
+          <div className="mb-12">
             <h3 className="text-[#751014] uppercase tracking-[0.35em] text-lg font-semibold text-center mb-8">
               Principal Sponsors
             </h3>
@@ -54,7 +54,7 @@ export default function Sponsors() {
 
         {/* Best Man & Matron of Honor */}
         <Reveal delay={120}>
-          <div className="grid grid-cols-2 gap-8 md:gap-14 mb-20 text-center">
+          <div className="grid grid-cols-2 gap-8 md:gap-14 mb-10 text-center">
             <div>
               <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-5 text-sm md:text-base">
                 Best Man
@@ -112,8 +112,8 @@ export default function Sponsors() {
 
         {/* Secondary Sponsors */}
         <Reveal delay={220}>
-          <div className="mb-20">
-            <h3 className="text-[#751014] uppercase tracking-[0.35em] text-lg font-semibold text-center mb-10">
+          <div className="mb-10">
+            <h3 className="text-[#751014] uppercase tracking-[0.35em] text-lg font-semibold text-center mb-8">
               Secondary Sponsors
             </h3>
 
@@ -158,16 +158,7 @@ export default function Sponsors() {
 
         {/* Bearers */}
         <Reveal delay={260}>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 text-center mb-20">
-            <div>
-              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
-                Ring Bearer
-              </h4>
-
-              <p className="font-display text-sm md:text-lg">
-                Andrei Richmond Ang
-              </p>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 text-center mb-10">
 
             <div>
               <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
@@ -176,6 +167,16 @@ export default function Sponsors() {
 
               <p className="font-display text-sm md:text-lg">
                 Liamson Tay
+              </p>
+            </div>
+
+            <div>
+              <h4 className="uppercase tracking-[0.3em] text-[#751014] mb-5 text-sm md:text-base">
+                Ring Bearer
+              </h4>
+
+              <p className="font-display text-sm md:text-lg">
+                Andrei Richmond Ang
               </p>
             </div>
 

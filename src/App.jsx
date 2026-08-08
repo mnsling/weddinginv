@@ -19,6 +19,7 @@ import backgroundMusic from "./assets/audio.mp3";
  * and the countdown logic lives in ./hooks.
  */
 export default function WeddingInvite() {
+  
   return (
     <div className="min-h-screen w-full bg-white text-[#333333] overflow-x-hidden antialiased selection:bg-[#751014] selection:text-white relative">
       <audio

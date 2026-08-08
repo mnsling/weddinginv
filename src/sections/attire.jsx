@@ -20,7 +20,8 @@ const palette = [
 
 export default function Attire() {
   return (
-    <section className="relative min-h-screen overflow-hidden py-20 md:py-28">
+    <section className="relative min-h-screen overflow-hidden py-24 md:py-32">
+
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -65,6 +66,7 @@ export default function Attire() {
 
       {/* Main Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+
         <SectionHeader
           numeral="VI"
           chapter="ATTIRE DRESS CODE"
@@ -79,18 +81,25 @@ export default function Attire() {
           </p>
         </Reveal>
 
-        {/* Attire Cards */}
-        <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mb-16 items-stretch justify-center">
-          
+        {/* ============================= */}
+        {/* ATTIRE CARDS */}
+        {/* ============================= */}
+
+        <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mb-16 items-center justify-center">
+
           {/* Gentlemen */}
-          <div className="flex-1">
-            <Reveal delay={140} className="h-full">
-              <div className="bg-white/95 backdrop-blur rounded-2xl p-6 md:p-8 shadow-xl h-full flex flex-col justify-center items-center">
+          <div className="w-full max-w-[360px]">
+            <Reveal delay={140}>
+
+              <div className="aspect-square bg-white/95 backdrop-blur rounded-2xl p-5 md:p-6 shadow-xl flex flex-col items-center">
+
+                {/* Label */}
                 <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
                   Gentlemen
                 </p>
 
-                <div className="w-full h-[420px] flex items-center justify-center">
+                {/* Suit Image */}
+                <div className="flex-1 min-h-0 w-full flex items-center justify-center">
                   <img
                     src={Suit}
                     alt="Formal Suit"
@@ -98,26 +107,34 @@ export default function Attire() {
                   />
                 </div>
 
-                <p className="font-display text-2xl md:text-3xl text-[#333]">
+                {/* Attire */}
+                <p className="font-display text-2xl md:text-3xl text-[#333] mt-2">
                   Suit & Tie
                 </p>
 
-                <p className="text-[11px] text-[#ffffff] tracking-wider uppercase mt-2">
+                {/* Restriction */}
+                <p className="text-[10px] md:text-[11px] text-[#ffffff] tracking-wider uppercase mt-1">
                   Strictly No Black or White
                 </p>
+
               </div>
+
             </Reveal>
           </div>
 
           {/* Ladies */}
-          <div className="flex-1">
-            <Reveal delay={200} className="h-full">
-              <div className="bg-white/95 backdrop-blur rounded-2xl p-6 md:p-8 shadow-xl h-full flex flex-col justify-center items-center">
+          <div className="w-full max-w-[360px]">
+            <Reveal delay={200}>
+
+              <div className="aspect-square bg-white/95 backdrop-blur rounded-2xl p-5 md:p-6 shadow-xl flex flex-col items-center">
+
+                {/* Label */}
                 <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
                   Ladies
                 </p>
 
-                <div className="w-full h-[420px] flex items-center justify-center">
+                {/* Gown Image */}
+                <div className="flex-1 min-h-0 w-full flex items-center justify-center">
                   <img
                     src={Gown}
                     alt="Long Gown"
@@ -125,19 +142,27 @@ export default function Attire() {
                   />
                 </div>
 
-                <p className="font-display text-2xl md:text-3xl text-[#333]">
+                {/* Attire */}
+                <p className="font-display text-2xl md:text-3xl text-[#333] mt-2">
                   Long Gown
                 </p>
 
-                <p className="text-[11px] text-[#751014] tracking-wider uppercase mt-2">
+                {/* Restriction */}
+                <p className="text-[10px] md:text-[11px] text-[#751014] tracking-wider uppercase mt-1">
                   Strictly No Black or White
                 </p>
+
               </div>
+
             </Reveal>
           </div>
+
         </div>
 
-        {/* Suggested Palette */}
+        {/* ============================= */}
+        {/* SUGGESTED PALETTE */}
+        {/* ============================= */}
+
         <Reveal delay={240}>
           <p className="text-[10px] md:text-[12px] tracking-[0.35em] uppercase font-semibold text-[#ffdd69] mb-8">
             Suggested Palette
@@ -151,6 +176,7 @@ export default function Attire() {
             ))}
           </div>
         </Reveal>
+
       </div>
     </section>
   );

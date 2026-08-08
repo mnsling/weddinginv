@@ -5,7 +5,7 @@ export default function TimelineItem({
   last = false,
 }) {
   return (
-    <div className="relative flex md:flex-col items-center md:flex-1">
+    <div className="relative flex md:flex-col pb-10 items-center md:flex-1">
       {/* Mobile Vertical Line */}
       {!last && (
         <div className="absolute left-10 top-20 h-full w-[2px] bg-[#751014]/15 md:hidden" />
@@ -27,7 +27,7 @@ export default function TimelineItem({
       </div>
 
       {/* Text */}
-      <div className="ml-5 md:ml-0 md:mt-6 text-left md:text-center pb-12 md:pb-0">
+      <div className="ml-5 md:ml-0 md:mt-6 text-left md:text-center md:pb-0">
         <p className="text-[#751014] text-xs uppercase tracking-[0.28em] font-semibold">
           {time}
         </p>

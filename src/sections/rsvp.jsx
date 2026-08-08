@@ -4,7 +4,7 @@ import SectionHeader from "../components/sectionHeader";
 
 export default function RSVP() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 md:py-36 text-[#333333]">
+    <section className="relative overflow-hidden bg-white pt-16 pb-24 md:pt-18 md:pb-32  text-[#333333]">
       {/* Decorative Flowers */}
       <Rose
         size={220}
@@ -43,19 +43,21 @@ export default function RSVP() {
               </p>
             </div>
 
-            {/* RSVP Deadline */}
-            <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] leading-7 text-[#751014]">
-              The favor of your reply is requested on or before
-              <br />
-              <span className="font-semibold">
-                September 07, 2026.
-              </span>
-            </p>
+            <div className="flex flex-col gap-5">
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.35em] leading-5 text-[#751014]">
+                Your presence means so much to us, and we would truly love to celebrate this special day with everyone we hold dear.
+              </p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] leading-5 text-[#751014]">
+                As our venue has limited seating, the favor of your reply is requested on or before <span className="font-semibold">September 07, 2026.</span>
+              </p>
+              <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] leading-5 text-[#751014]">
+                Thank you for your kind understanding, we can't wait to celebrate with you!
+              </p>
+            </div>
 
             {/* Contact */}
-            <p className="mt-6 text-[11px] md:text-xs uppercase tracking-[0.22em] leading-7 text-[#751014]">
-              Kindly confirm your attendance with
-              <br />
+            <p className="mt-6 text-[11px] md:text-xs uppercase tracking-[0.22em] leading-5 text-[#751014]">
+              Kindly confirm your attendance with {" "}
               <span className="font-semibold">
                 VM Weddings
               </span>{" "}
