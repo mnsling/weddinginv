@@ -3,6 +3,8 @@ import Rose from "../components/rose";
 import SectionHeader from "../components/sectionHeader";
 import Swatch from "../components/swatch";
 import bgImage from "../assets/bg.jpg";
+import Suit from "../assets/suit.png";
+import Gown from "../assets/gown.png";
 
 const palette = [
   "#693e21",
@@ -18,34 +20,35 @@ const palette = [
 
 export default function Attire() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36 text-white">
+    <section className="relative min-h-screen overflow-hidden py-20 md:py-28">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${bgImage})`,
         }}
-      >
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/35" />
+      />
 
-        {/* Top & Bottom Fade */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `
-              linear-gradient(
-                to bottom,
-                rgba(255,255,255,1) 0%,
-                rgba(255,255,255,0) 15%,
-                rgba(255,255,255,0) 82%,
-                rgba(255,255,255,1) 100%
-              )
-            `,
-          }}
-        />
-      </div>
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40" />
 
+      {/* Top & Bottom Fade */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: `
+            linear-gradient(
+              to bottom,
+              rgba(255,255,255,1) 0%,
+              rgba(255,255,255,0) 15%,
+              rgba(255,255,255,0) 82%,
+              rgba(255,255,255,1) 100%
+            )
+          `,
+        }}
+      />
+
+      {/* Decorative Roses */}
       <Rose
         size={130}
         tone="#ffdd69"
@@ -60,6 +63,7 @@ export default function Attire() {
         className="absolute bottom-6 right-2 sm:right-8 pointer-events-none"
       />
 
+      {/* Main Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
         <SectionHeader
           numeral="VI"
@@ -75,27 +79,51 @@ export default function Attire() {
           </p>
         </Reveal>
 
+        {/* Attire Cards */}
         <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mb-16 items-stretch justify-center">
+          
+          {/* Gentlemen */}
           <div className="flex-1">
             <Reveal delay={140} className="h-full">
-              <div className="bg-white/95 backdrop-blur rounded-2xl p-8 shadow-xl h-full flex flex-col justify-center items-center">
+              <div className="bg-white/95 backdrop-blur rounded-2xl p-6 md:p-8 shadow-xl h-full flex flex-col justify-center items-center">
                 <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
                   Gentlemen
                 </p>
 
+                <div className="w-full h-[420px] flex items-center justify-center">
+                  <img
+                    src={Suit}
+                    alt="Formal Suit"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
                 <p className="font-display text-2xl md:text-3xl text-[#333]">
                   Suit & Tie
+                </p>
+
+                <p className="text-[11px] text-[#ffffff] tracking-wider uppercase mt-2">
+                  Strictly No Black or White
                 </p>
               </div>
             </Reveal>
           </div>
 
+          {/* Ladies */}
           <div className="flex-1">
             <Reveal delay={200} className="h-full">
-              <div className="bg-white/95 backdrop-blur rounded-2xl p-8 shadow-xl h-full flex flex-col justify-center items-center">
+              <div className="bg-white/95 backdrop-blur rounded-2xl p-6 md:p-8 shadow-xl h-full flex flex-col justify-center items-center">
                 <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
                   Ladies
                 </p>
+
+                <div className="w-full h-[420px] flex items-center justify-center">
+                  <img
+                    src={Gown}
+                    alt="Long Gown"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
 
                 <p className="font-display text-2xl md:text-3xl text-[#333]">
                   Long Gown
@@ -109,8 +137,9 @@ export default function Attire() {
           </div>
         </div>
 
+        {/* Suggested Palette */}
         <Reveal delay={240}>
-          <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#ffdd69] mb-8">
+          <p className="text-[10px] md:text-[12px] tracking-[0.35em] uppercase font-semibold text-[#ffdd69] mb-8">
             Suggested Palette
           </p>
         </Reveal>

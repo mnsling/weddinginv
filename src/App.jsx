@@ -7,6 +7,8 @@ import Timeline from "./sections/timeline";
 import Attire from "./sections/attire";
 import RSVP from "./sections/rsvp";
 import Closing from "./sections/closing";
+import backgroundMusic from "./assets/audio.mp3";
+
 
 /**
  * Ryan & Abigail — Wedding Invitation
@@ -19,6 +21,12 @@ import Closing from "./sections/closing";
 export default function WeddingInvite() {
   return (
     <div className="min-h-screen w-full bg-white text-[#333333] overflow-x-hidden antialiased selection:bg-[#751014] selection:text-white relative">
+      <audio
+        src={backgroundMusic}
+        autoPlay
+        loop
+        preload="auto"
+      />
       {/* Falling Rose Petals Animation Layer */}
       <FallingPetals count={25} />
 

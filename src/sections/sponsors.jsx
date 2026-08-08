@@ -196,7 +196,7 @@ export default function Sponsors() {
         {/* Flower Girls */}
         <Reveal delay={300}>
           <div className="text-center">
-            <h3 className="uppercase tracking-[0.35em] text-[#751014] font-semibold mb-6 text-base md:text-lg">
+            <h3 className="uppercase tracking-[0.3em] font-inter text-[#751014] mb-5 text-sm md:text-base">
               Flower Girls
             </h3>
 
