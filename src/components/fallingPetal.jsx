@@ -1,29 +1,57 @@
 import { useEffect, useState } from "react";
 
 // ---------------------------------------------------------------------------
-// Falling Rose Petals Animation Component
+// Falling Autumn Petals / Leaves Animation
 // ---------------------------------------------------------------------------
+
 export default function FallingPetals({ count = 22 }) {
   const [petals, setPetals] = useState([]);
 
   useEffect(() => {
-    // Generate petals with randomized speeds, sizes, positions, and drift angles
+    // Autumn wedding palette:
+    // burgundy, wine red, burnt orange, olive & muted forest green
+    const colors = [
+      "#A60934", // crimson
+      "#751014", // burgundy
+      "#E17A13", // burnt orange
+      "#6F7B32", // olive green
+      "#344C15", // forest green
+      "#9A6B32", // warm autumn brown
+    ];
+
     const generatedPetals = Array.from({ length: count }).map((_, i) => ({
       id: i,
-      left: Math.random() * 100, // Horizontal start percentage
-      size: 12 + Math.random() * 14, // Petal width in px
-      duration: 7 + Math.random() * 8, // Fall duration (seconds)
-      delay: Math.random() * 10, // Initial delay before animation starts
-      opacity: 0.5 + Math.random() * 0.4, // Opacity variation
-      swayDuration: 3 + Math.random() * 3, // Sway frequency
-      rotate: Math.random() * 360, // Initial rotation angle
-      color: i % 3 === 0 ? "#A60934" : i % 2 === 0 ? "#751014" : "#E17A13", // Rich crimson & warm tones
+
+      // Horizontal starting position
+      left: Math.random() * 100,
+
+      // Size
+      size: 12 + Math.random() * 14,
+
+      // Falling speed
+      duration: 7 + Math.random() * 8,
+
+      // Delay
+      delay: Math.random() * 10,
+
+      // Softer / more transparent
+      opacity: 0.3 + Math.random() * 0.35,
+
+      // Side-to-side movement
+      swayDuration: 3 + Math.random() * 3,
+
+      // Starting rotation
+      rotate: Math.random() * 360,
+
+      // Autumn color
+      color: colors[i % colors.length],
     }));
+
     setPetals(generatedPetals);
   }, [count]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-30 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden z-20">
       {petals.map((p) => (
         <div
           key={p.id}
@@ -34,7 +62,7 @@ export default function FallingPetals({ count = 22 }) {
             animationDelay: `${p.delay}s`,
           }}
         >
-          {/* Individual Sway & Rotation Wrapper */}
+          {/* Individual Petal / Leaf */}
           <svg
             width={p.size}
             height={p.size * 1.3}
@@ -44,11 +72,29 @@ export default function FallingPetals({ count = 22 }) {
               opacity: p.opacity,
               animation: `sway ${p.swayDuration}s ease-in-out infinite alternate`,
               transform: `rotate(${p.rotate}deg)`,
-              filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.15))",
+              filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.10))",
             }}
           >
-            {/* Smooth Rose Petal Path */}
-            <path d="M12 0 C 20 5, 24 15, 18 25 C 12 30, 6 28, 2 20 C -2 10, 4 2, 12 0 Z" />
+            {/* Soft organic leaf / petal shape */}
+            <path
+              d="
+                M12 1
+                C18 5, 23 11, 21 18
+                C19 25, 13 29, 12 29
+                C11 29, 5 25, 3 18
+                C1 11, 6 5, 12 1
+                Z
+              "
+            />
+
+            {/* Subtle leaf vein */}
+            <path
+              d="M12 4 C11.5 10, 12.5 18, 12 26"
+              fill="none"
+              stroke="rgba(255,255,255,0.18)"
+              strokeWidth="0.7"
+              strokeLinecap="round"
+            />
           </svg>
         </div>
       ))}

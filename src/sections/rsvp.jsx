@@ -61,7 +61,7 @@ export default function RSVP() {
               <span className="font-semibold">
                 VM Weddings
               </span>{" "}
-              (0956 756 0013)
+              (0956 756 0013) or contact the couples directly.
             </p>
           </div>
         </Reveal>

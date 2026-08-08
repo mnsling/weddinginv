@@ -30,9 +30,8 @@ export default function Parents() {
         />
 
         <Reveal delay={80}>
-          <p className="font-display text-xl md:text-3xl leading-relaxed text-[#333333] mb-12 max-w-xl mx-auto font-light">
-            We joyfully invite you to witness our marriage and share in the
-            beginning of our life together.
+          <p className="font-display text-xl md:text-2xl leading-relaxed text-[#333333] mb-12 max-w-xl mx-auto font-light">
+            With grateful hearts, we invite you to celebrate this special day with us as we begin our life together.
           </p>
         </Reveal>
 
