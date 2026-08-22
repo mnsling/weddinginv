@@ -8,7 +8,7 @@ import useCountdown from "../hooks/useCountdown";
 // Section I — Hero (bg #751014)
 // ---------------------------------------------------------------------------
 export default function Hero() {
-  const countdown = useCountdown("2026-10-03T15:00:00");
+  const countdown = useCountdown("2026-10-03T14:30:00");
 
   return (
     <section className="relative bg-[#751014] text-white py-16 md:py-24 min-h-screen flex flex-col items-center justify-center overflow-hidden">
