@@ -35,7 +35,7 @@ export default function Details() {
               label="Ceremony"
               title="Redemptorist Church"
               address="J.P. Laurel Avenue, Davao City"
-              time="3:00 PM"
+              time="2:30 PM"
               mapQuery="Redemptorist Church, J.P. Laurel Avenue, Davao City"
             />
           </Reveal>
