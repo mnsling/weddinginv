@@ -62,7 +62,7 @@ export default function Hero() {
 
         <Reveal delay={220}>
           <p className="text-xs md:text-lg tracking-[0.3em] uppercase text-white/90 font-light mt-2">
-            October 3, 2026 at 2:30 PM | Saturday
+            October 3, 2026<br/>2:30 PM • Saturday
           </p>
         </Reveal>
 
