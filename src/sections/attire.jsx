@@ -2,7 +2,8 @@ import Reveal from "../components/reveal";
 import Rose from "../components/rose";
 import SectionHeader from "../components/sectionHeader";
 import Swatch from "../components/swatch";
-import bgImage from "../assets/bg.jpg";
+
+import bgImage from "../assets/bg.png";
 import Suit from "../assets/suit.png";
 import Gown from "../assets/gown.png";
 
@@ -30,12 +31,12 @@ export default function Attire() {
         }}
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Very light white overlay */}
+      <div className="absolute inset-0 bg-white/10" />
 
       {/* Top & Bottom Fade */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background: `
             linear-gradient(
@@ -52,107 +53,95 @@ export default function Attire() {
       {/* Decorative Roses */}
       <Rose
         size={130}
-        tone="#ffdd69"
-        opacity={0.18}
+        tone="#751014"
+        opacity={0.10}
         className="absolute top-6 left-2 sm:left-8 pointer-events-none"
       />
 
       <Rose
         size={150}
-        tone="#ffffff"
-        opacity={0.14}
+        tone="#751014"
+        opacity={0.08}
         className="absolute bottom-6 right-2 sm:right-8 pointer-events-none"
       />
 
       {/* Main Content */}
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
 
+        {/* ============================= */}
+        {/* HEADER */}
+        {/* ============================= */}
+
         <SectionHeader
           numeral="VI"
           chapter="ATTIRE DRESS CODE"
           title="Formal Attire"
-          theme="light"
+          theme="dark"
         />
 
         <Reveal delay={100}>
-          <p className="text-white/90 text-sm md:text-base mb-14 max-w-md mx-auto leading-relaxed font-light">
+          <p className="text-[#4a3f3f] text-sm md:text-base mb-14 max-w-md mx-auto leading-relaxed font-normal">
             We'd love for our photos together to feel warm and cohesive.
             Here's a guide for what to wear.
           </p>
         </Reveal>
 
         {/* ============================= */}
-        {/* ATTIRE CARDS */}
+        {/* ATTIRE */}
         {/* ============================= */}
 
-        <div className="flex flex-col sm:flex-row gap-6 md:gap-8 mb-16 items-center justify-center">
+        <div className="flex gap-10 md:gap-16 mb-16 items-center justify-center">
 
           {/* Gentlemen */}
-          <div className="w-full max-w-[360px]">
+          <div className="w-full max-w-[300px]">
             <Reveal delay={140}>
 
-              <div className="aspect-square bg-white/95 backdrop-blur rounded-2xl p-5 md:p-6 shadow-xl flex flex-col items-center">
+              <p className="text-[10px] tracking-[0.35em] uppercase font-bold text-[#751014] mb-4">
+                Gentlemen
+              </p>
 
-                {/* Label */}
-                <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
-                  Gentlemen
-                </p>
-
-                {/* Suit Image */}
-                <div className="flex-1 min-h-0 w-full flex items-center justify-center">
-                  <img
-                    src={Suit}
-                    alt="Formal Suit"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                {/* Attire */}
-                <p className="font-display text-2xl md:text-3xl text-[#333] mt-2">
-                  Suit & Tie
-                </p>
-
-                {/* Restriction */}
-                <p className="text-[10px] md:text-[11px] text-[#ffffff] tracking-wider uppercase mt-1">
-                  Strictly No Black or White
-                </p>
-
+              <div className="w-full h-[280px] md:h-[340px] flex items-center justify-center">
+                <img
+                  src={Suit}
+                  alt="Formal Suit"
+                  className="w-full h-full object-cover"
+                />
               </div>
+
+              <p className="font-display text-2xl md:text-3xl text-[#751014] mt-3">
+                Suit & Tie
+              </p>
+
+              <p className="text-[10px] md:text-[11px] text-transparent font-semibold tracking-wider uppercase mt-2">
+                Strictly No Black or White
+              </p>
 
             </Reveal>
           </div>
 
           {/* Ladies */}
-          <div className="w-full max-w-[360px]">
+          <div className="w-full max-w-[300px]">
             <Reveal delay={200}>
 
-              <div className="aspect-square bg-white/95 backdrop-blur rounded-2xl p-5 md:p-6 shadow-xl flex flex-col items-center">
+              <p className="text-[10px] tracking-[0.35em] uppercase font-bold text-[#751014] mb-4">
+                Ladies
+              </p>
 
-                {/* Label */}
-                <p className="text-[10px] tracking-[0.35em] uppercase font-semibold text-[#751014] mb-2">
-                  Ladies
-                </p>
-
-                {/* Gown Image */}
-                <div className="flex-1 min-h-0 w-full flex items-center justify-center">
-                  <img
-                    src={Gown}
-                    alt="Long Gown"
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-
-                {/* Attire */}
-                <p className="font-display text-2xl md:text-3xl text-[#333] mt-2">
-                  Long Gown
-                </p>
-
-                {/* Restriction */}
-                <p className="text-[10px] md:text-[11px] text-[#751014] tracking-wider uppercase mt-1">
-                  Strictly No Black or White
-                </p>
-
+              <div className="w-full h-[280px] md:h-[340px] flex items-center justify-center">
+                <img
+                  src={Gown}
+                  alt="Long Gown"
+                  className="w-full h-full object-cover"
+                />
               </div>
+
+              <p className="font-display text-2xl md:text-3xl text-[#751014] mt-3">
+                Long Gown
+              </p>
+
+              <p className="text-[10px] md:text-[11px] text-[#4a3f3f] font-semibold tracking-wider uppercase mt-2">
+                Strictly No Black or White
+              </p>
 
             </Reveal>
           </div>
@@ -164,16 +153,28 @@ export default function Attire() {
         {/* ============================= */}
 
         <Reveal delay={240}>
-          <p className="text-[10px] md:text-[12px] tracking-[0.35em] uppercase font-semibold text-[#ffdd69] mb-8">
+          <p className="text-[10px] md:text-[12px] tracking-[0.35em] uppercase font-bold text-[#751014] mb-8">
             Suggested Palette
           </p>
         </Reveal>
 
         <Reveal delay={280}>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
-            {palette.map((hex) => (
-              <Swatch key={hex} hex={hex} />
-            ))}
+          <div className="flex flex-col items-center gap-4 md:gap-5">
+
+            {/* First row — 5 colors */}
+            <div className="flex justify-center gap-4 md:gap-6">
+              {palette.slice(0, 6).map((hex) => (
+                <Swatch key={hex} hex={hex} />
+              ))}
+            </div>
+
+            {/* Second row — 4 colors */}
+            <div className="flex justify-center gap-4 md:gap-6">
+              {palette.slice(6).map((hex) => (
+                <Swatch key={hex} hex={hex} />
+              ))}
+            </div>
+
           </div>
         </Reveal>
 
