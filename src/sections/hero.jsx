@@ -5,7 +5,7 @@ import Rose from "../components/rose";
 import CornerFloral from "../components/cornerFloral";
 import CountdownStat from "../components/countdownStat";
 import useCountdown from "../hooks/useCountdown";
-
+import SwirlLine from "../components/swirlLine";
 import monogram from "../assets/monogram.png";
 
 // ---------------------------------------------------------------------------
@@ -44,101 +44,121 @@ export default function Hero() {
       {showIntro && (
         <div
           className={`
-            fixed inset-0 z-[100]
-            flex items-center justify-center
-            bg-[#f7ecd7]
-            transition-all duration-[800ms] ease-in-out
-
-            ${
-              hideIntro
-                ? "opacity-0 scale-[1.04]"
-                : "opacity-100 scale-100"
+      fixed inset-0 z-[100]
+      flex items-center justify-center
+      bg-[#f7ecd7]
+      overflow-hidden
+      transition-all duration-[800ms] ease-in-out
+      ${hideIntro
+              ? "opacity-0 scale-[1.04]"
+              : "opacity-100 scale-100"
             }
-          `}
+    `}
         >
-          {/* Soft radial background glow */}
+
+          {/* Soft background glow */}
           <div
             className="
-              absolute inset-0
-              bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.9),rgba(247,236,215,1)_70%)]
-            "
+        absolute inset-0
+        bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.9),rgba(247,236,215,1)_70%)]
+      "
           />
 
-          {/* Decorative gold corner details */}
+          {/* ============================= */}
+          {/* SWIRLING CALLIGRAPHIC LINE */}
+          {/* ============================= */}
+
+          <SwirlLine
+            className="
+        absolute
+        left-1/2
+        top-1/2
+        -translate-x-1/2
+        -translate-y-1/2
+        w-[130%]
+        md:w-[110%]
+        h-auto
+        pointer-events-none
+        z-[1]
+      "
+          />
+
+          {/* Corner Florals */}
+
           <CornerFloral
             tone="#b99242"
-            opacity={0.22}
+            opacity={0.18}
             className="absolute top-5 left-5"
           />
 
           <CornerFloral
             tone="#b99242"
-            opacity={0.22}
+            opacity={0.18}
             className="absolute top-5 right-5 rotate-90"
           />
 
           <CornerFloral
             tone="#b99242"
-            opacity={0.22}
+            opacity={0.18}
             className="absolute bottom-5 left-5 -rotate-90"
           />
 
           <CornerFloral
             tone="#b99242"
-            opacity={0.22}
+            opacity={0.18}
             className="absolute bottom-5 right-5 rotate-180"
           />
 
-          {/* Main Intro Content */}
+          {/* ============================= */}
+          {/* MONOGRAM */}
+          {/* ============================= */}
+
           <div className="relative z-10 flex flex-col items-center text-center px-6">
 
-            {/* Monogram */}
             <div className="intro-monogram">
               <img
                 src={monogram}
                 alt="Ryan and Abigail Monogram"
                 className="
-                  w-56
-                  sm:w-64
-                  md:w-72
-                  lg:w-80
-                  h-auto
-                  object-contain
-                "
+            w-56
+            sm:w-64
+            md:w-72
+            lg:w-80
+            h-auto
+            object-contain
+          "
               />
             </div>
 
-            {/* Divider */}
             <div className="intro-line mt-7 mb-5" />
 
-            {/* Names */}
             <p
               className="
-                intro-text
-                text-[#3f2f29]
-                text-[11px]
-                md:text-sm
-                tracking-[0.45em]
-                uppercase
-                font-medium
-              "
+          intro-text
+          text-[#3f2f29]
+          text-[11px]
+          md:text-sm
+          tracking-[0.45em]
+          uppercase
+          font-medium
+        "
             >
               Ryan & Abigail
             </p>
 
-            {/* Date */}
             <p
               className="
-                intro-date
-                text-[#751014]
-                text-[10px]
-                md:text-xs
-                tracking-[0.35em]
-                mt-3
-              "
+          intro-date
+          text-[#751014]
+          text-[10px]
+          md:text-xs
+          tracking-[0.35em]
+          mt-3
+        "
             >
               10 . 03 . 26
             </p>
+
           </div>
         </div>
       )}
@@ -165,10 +185,9 @@ export default function Hero() {
           duration-[1200ms]
           ease-out
 
-          ${
-            showIntro && !hideIntro
-              ? "opacity-0 scale-[1.03]"
-              : "opacity-100 scale-100"
+          ${showIntro && !hideIntro
+            ? "opacity-0 scale-[1.03]"
+            : "opacity-100 scale-100"
           }
         `}
       >

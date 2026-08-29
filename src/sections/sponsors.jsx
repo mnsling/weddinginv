@@ -39,13 +39,13 @@ export default function Sponsors() {
                 <p>Mr. Jose Uy</p>
                 <p>Mr. Jose Go</p>
                 <p>Mr. Philip Ling</p>
-                <p>Mr. Orlando Juan</p>
+                <p>Mr. Rolando Juan</p>
               </div>
 
               <div className="space-y-3 font-display text-base md:text-lg">
                 <p>Mrs. Erlie Uy</p>
                 <p>Mrs. Roselyn Wu</p>
-                <p>Mrs. Lesly Ling</p>
+                <p>Mrs. Lesley Ling</p>
                 <p>Mrs. Suraida Juan</p>
               </div>
             </div>
