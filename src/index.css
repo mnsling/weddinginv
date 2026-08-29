@@ -31,3 +31,113 @@
   mask-repeat: no-repeat;
   mask-size: contain;
 }
+
+/* ========================================================= */
+/* Wedding Intro Animation */
+/* ========================================================= */
+
+@keyframes monogramEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.82) translateY(14px);
+    filter: blur(8px);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.03) translateY(0);
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes lineReveal {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  100% {
+    width: 90px;
+    opacity: 1;
+  }
+}
+
+@keyframes introTextReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.7em;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.45em;
+  }
+}
+
+@keyframes introDateReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-monogram {
+  animation:
+    monogramEntrance
+    1.4s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    forwards;
+}
+
+.intro-line {
+  height: 1px;
+  width: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    #b99242,
+    transparent
+  );
+
+  animation:
+    lineReveal
+    0.8s
+    ease-out
+    0.9s
+    forwards;
+}
+
+.intro-text {
+  opacity: 0;
+
+  animation:
+    introTextReveal
+    0.8s
+    ease-out
+    1.05s
+    forwards;
+}
+
+.intro-date {
+  opacity: 0;
+
+  animation:
+    introDateReveal
+    0.7s
+    ease-out
+    1.35s
+    forwards;
+}
