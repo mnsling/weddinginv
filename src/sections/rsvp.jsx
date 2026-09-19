@@ -48,10 +48,7 @@ export default function RSVP() {
                 Your presence means so much to us, and we would truly love to celebrate this special day with everyone we hold dear.
               </p>
               <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] leading-5 text-[#751014]">
-                As our venue has limited seating, the favor of your reply is requested on or before <span className="font-semibold">September 10, 2026.</span>
-              </p>
-              <p className="text-[10px] md:text-xs uppercase tracking-[0.22em] leading-5 text-[#751014]">
-                Thank you for your kind understanding, we can't wait to celebrate with you!
+                As our venue has limited seating, the favor of your reply is requested. Thank you for your kind understanding, we can't wait to celebrate with you!
               </p>
             </div>
 
